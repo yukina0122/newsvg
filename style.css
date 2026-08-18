@@ -1,0 +1,33 @@
+body{margin:0;background:#111;color:#fff;font-family:sans-serif}
+
+#camera{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+
+/* SVGMap.js の地図はカメラ映像の上に半透明で重ねる */
+#mapcanvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:auto;
+}
+#mapcanvas svg{width:100%;height:100%;display:block}
+
+#hud{
+  position:absolute;top:20px;left:20px;right:20px;
+  max-height:70vh;overflow-y:auto;
+  background:rgba(0,0,0,.55);padding:16px;border-radius:12px;
+  pointer-events:auto;
+}
+
+.pin{padding:6px;margin:4px;background:#2196f3;border-radius:8px;cursor:pointer}
+.pin.selected{background:#ff5722}
+
+/* 地図上のPOIマーカー(SVGMap.jsが生成する<g>要素に付与) */
+.map-pin-icon{cursor:pointer}
+.map-pin-icon circle{fill:#ff5722;stroke:#fff;stroke-width:2}
+.map-pin-icon.you-are-here circle{fill:#2196f3}
+
+
+/* SVGMap.js の #gui は centerSight などを絶対配置するための全画面コンテナ */
+#gui{position:fixed;inset:0;pointer-events:none;z-index:5}
+#gui .map-ctrl-btn{pointer-events:auto;cursor:pointer;background:rgba(0,0,0,.5);border-radius:6px;padding:2px}
